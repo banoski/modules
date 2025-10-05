@@ -15,7 +15,7 @@ Autoencoder sind eine Art von neuronaler Netzarchitektur, die in den letzten Jah
 
 ### Was sind Autoencoder?
 
-Autoencoder sind eine Art von neuronalen Netzwerken, die aus einem Encoder und einem Decoder besteht. Der Kodierer nimmt eine Eingabe auf und ordnet sie einer latenten Raumdarstellung zu, die eine komprimierte Version der Eingabe ist. Der Decoder nimmt dann diese komprimierte Darstellung und versucht, die ursprüngliche Eingabe zu rekonstruieren. Ziel des Autoencoders ist es, eine komprimierte Darstellung der Eingabe zu erlernen, mit der die ursprüngliche Eingabe so genau wie möglich rekonstruiert werden kann.
+Autoencoder sind eine Art von neuronalen Netzwerken, die aus einem Encoder und einem Decoder besteht. Der Kodierer nimmt eine Eingabe auf und ordnet sie einer latenten Raumdarstellung zu, die eine komprimierte Version der Eingabe ist. Der Decoder nimmt dann diese komprimierte Darstellung und versucht, die ursprüngliche Eingabe zu rekonstruieren.
 
 Der Trainingsprozess eines Autoencoders beinhaltet die Minimierung des Rekonstruktionsverlustes, der die Differenz zwischen der ursprünglichen Eingabe und der rekonstruierten Ausgabe darstellt. Dieser Verlust wird durch das Netzwerk rückgekoppelt, so dass die Gewichte aktualisiert werden und das Netzwerk genauere Darstellungen lernt.
 
@@ -26,7 +26,7 @@ Der Trainingsprozess eines Autoencoders beinhaltet die Minimierung des Rekonstru
 
 Die Architektur und die Komponenten von Autoencodern spielen eine entscheidende Rolle für ihre Funktionsweise. Das Verständnis dieser Elemente ist wichtig, um zu verstehen, wie diese Modelle funktionieren. Sie bestehen aus mehreren Schlüsselkomponenten, die zusammenarbeiten, um Eingabedaten zu kodieren und zu dekodieren. Die Architektur umfasst in der Regel einen Encoder, einen Decoder und eine Bottleneck-Schicht. Sehen wir uns jede Komponente im Detail an:
 
-**Encoder**: Der Encoder ist der erste Teil eines Autoencoders. Sein Zweck ist die Umwandlung der Eingabedaten in eine komprimierte Darstellung oder einen latenten Raum. Der Encoder wendet eine Reihe von Transformationen an, wie z. B. lineare oder nichtlineare Transformationen, um die Dimensionalität der Eingabedaten zu reduzieren. Diese Reduzierung der Dimensionalität führt zu einer komprimierten Darstellung, die die wichtigsten Merkmale der Eingabedaten erfasst.
+**Encoder**: Der Encoder ist der erste Teil eines Autoencoders. Sein Zweck ist die Umwandlung der Eingabedaten in eine komprimierte Darstellung oder einen latenten Raum. Der Encoder wendet eine Reihe von Transformationen an, wie z. B. lineare oder nichtlineare Transformationen, um die Dimensionalität der Eingabedaten zu reduzieren. 
 
 **Bottleneck-Schicht**: Die Engpassschicht, die auch als *latenter Raum* (latent space) oder *Repräsentationsschicht* bezeichnet wird, ist die komprimierte Repräsentation, die vom Encoder erhalten wird. Es handelt sich um einen niedrigdimensionalen Raum, in dem die wesentlichen Merkmale der Eingabedaten erfasst werden. Die Engpassschicht fungiert als Engpass oder Einschränkung, die das Modell dazu zwingt, eine kompaktere und effizientere Darstellung zu lernen.
 
@@ -34,9 +34,9 @@ Die Architektur und die Komponenten von Autoencodern spielen eine entscheidende 
 
 Das Ziel besteht darin, den Rekonstruktionsfehler zwischen der ursprünglichen Eingabe und der dekodierten Ausgabe zu minimieren. Diese Architektur kann je nach Art und Zweck des Modells variieren. Ein einfacher Autoencoder besteht zum Beispiel aus vollständig verknüpften Schichten, während Faltungsschichten in Faltungs-Autoencodern für Bilddaten verwendet werden. In ähnlicher Weise werden rekurrente Schichten in der rekurrenten Version für sequentielle Daten verwendet.
 
-Durch die Nutzung der Encoder- und Decoder-Komponenten können diese Modelle effiziente Darstellungen der Eingabedaten lernen. Der Kodierer komprimiert die Daten in einen niedriger-dimensionalen Raum, und der Dekodierer rekonstruiert die ursprüngliche Eingabe aus dieser komprimierten Darstellung. Dieser Prozess ermöglicht es ihnen, wichtige (dominanten, relevante) Muster und Merkmale der Daten zu erfassen.
+Durch die Nutzung der Encoder- und Decoder-Komponenten können diese Modelle effiziente Darstellungen der Eingabedaten lernen. Der Kodierer komprimiert die Daten in einen niedriger-dimensionalen Raum, und der Dekodierer rekonstruiert die ursprüngliche Eingabe aus dieser komprimierten Darstellung. Dieser Prozess ermöglicht es ihnen, wichtige (dominante, relevante) Muster und Merkmale der Daten zu erfassen.
 
-Das Verständnis der Architektur und der Komponenten von Autoencodern ist für die effektive Nutzung und Optimierung dieser Modelle in verschiedenen Anwendungen unerlässlich. Mit diesem Wissen können Praktiker ihre Modelle für spezifische Aufgaben wie Bildentrauschung, Anomalieerkennung, Merkmalsextraktion oder Dimensionalitätsreduktion entwerfen und anpassen.
+Das Verständnis der Architektur und der Komponenten von Autoencodern ist für die effektive Nutzung und Optimierung dieser Modelle in verschiedenen Anwendungen unerlässlich. Mit diesem Wissen können Praktiker ihre Modelle für spezifische Aufgaben wie Entrauschung von Bildern, Anomalieerkennung, Merkmalsextraktion oder Dimensionalitätsreduktion entwerfen und anpassen.
 
 ## Was sind die verschiedenen Arten von Autoencodern?
 
@@ -56,6 +56,27 @@ Es gibt verschiedene Formen von Autoencodern, die jeweils für unterschiedliche 
 
 Das Verständnis der verschiedenen Arten von Autoencodern ermöglicht es Praktikern, die am besten geeignete Architektur für ihre spezifische Aufgabe oder Datenart zu wählen. Jeder Typ hat seine eigenen Merkmale und Vorteile, die ihn zu einem vielseitigen Werkzeug für eine breite Palette von Anwendungen in der Datenanalyse, Bildverarbeitung, generativen Modellierung und mehr machen.
 
+
+## Beispiel: Vector Embeddings mit neuronalen Netzen
+
+Um alltägliche Daten als Vektoren abzubilden, werden verschiedene Methoden genutzt. [Dieser Code](/modules/autoencoder/MNIST_Autoencoder.ipynb) zeigt exemplarisch, wie man einen **Autoencoder** für [MNIST](https://en.wikipedia.org/wiki/MNIST_database)-Daten trainieren kann. Hier nutzen wir einen Autoencoder, um Bilddaten erst auf eine niedrig-dimensionalere Repräsentation abzubilden (Encoder) und dann (fehlerbehaftet) die Originaldaten wieder herzustellen. Nachdem das neuronale Netz wiederholt trainiert wurde, so dass der Rekonstruktionsfehler minimiert wurde, kann der innere *Latent Space* als niedrigdimensionaleres **Embedding** der Originaldaten verstanden werden. Der Encoder ist also unser *Vectorizer*, der Latent Space unser Ziel-Vektorraum, und der Decoder die Rückübersetzung in den Bildraum.
+
+Bei genauerer Betrachtung des Jupyter Notebooks fällt insbesondere auf, dass ähnliche Bilder (z.B. alle Bilder der handschriftlichen Zahl "0") auf ähnliche (nahe beieinander liegende) Vektoren im Latent Space abgebildet werden:
+
+"Nullen" im latent space:
+
+![](./images/latent_zeros.png)
+
+Im Vergleich dazu "Vieren" im latent space:
+
+![](images/latent_fours.png)
+
+Eine detaillierte Erklärung zum Thema Autoencoder finden Sie in [der zugehörigen Lektion](/modules/autoencoder/autoencoder.md). 
+{: .notice--info} 
+
+Nochmal: *Das heißt, dass sich semantisch-inhaltliche Daten auch an einem ähnlichen Ort im Latent Space befinden.*
+
+
 ## Was sind die Anwendungen eines Autoencoders?
 
 Autoencoder sind aufgrund ihrer Vielseitigkeit und ihrer Fähigkeit, sinnvolle Darstellungen aus Daten zu extrahieren, in verschiedenen Bereichen sehr beliebt. Im Folgenden werden einige der wichtigsten Anwendungen vorgestellt:
@@ -69,7 +90,8 @@ Autoencoder sind aufgrund ihrer Vielseitigkeit und ihrer Fähigkeit, sinnvolle D
 
 Dies sind nur einige Beispiele für die vielfältigen Anwendungen von Autoencodern. Mit der weiteren Erforschung und Verfeinerung von Autoencoder-Architekturen erweitern sich ihre Fähigkeiten in neue Bereiche, was sie zu einem leistungsstarken Werkzeug für verschiedene datengesteuerte Aufgaben und Bereiche macht.
 
-Halt! Falls Sie zügig über diesen Absatz gelesen haben, überlegen Sie mal: der Aspekt der **Dimensionsreduktion** ist das vielleicht wichtigste und mächstigste Feature von Autoencodern. Welche praktischen Anwendungen fallen Ihnen dafür ein? {: .notice--warning}
+**Halt!** Falls Sie gerade zügig über diesen Absatz gelesen haben, überlegen Sie mal: der Aspekt der **Dimensionsreduktion** ist das vielleicht wichtigste und mächstigste Feature von Autoencodern. Welche praktischen Anwendungen fallen Ihnen dafür ein? 
+{: .notice--task} 
 
 ## Wie werden Deepfakes hergestellt?
 
@@ -77,19 +99,17 @@ Halt! Falls Sie zügig über diesen Absatz gelesen haben, überlegen Sie mal: de
 
 Bekanntes Beispiel: [Deep Fakes, welche Festnahmen von Donald Trump zeigen](https://arstechnica.com/tech-policy/2023/03/fake-ai-generated-images-imagining-donald-trumps-arrest-circulate-on-twitter/). Erstellt mit Midjourney, welches im Kern seiner Architektur auf Autoencodern basiert.
 
-Deepfakes sind synthetische Medien, die mit Hilfe von Deep-Learning-Techniken, insbesondere generativen adversen Netzwerken (GANs) und Autoencoder, erstellt werden, um visuelle und akustische Inhalte so zu ersetzen oder zu manipulieren, dass sie authentisch erscheinen. Sie haben aufgrund ihres Potenzials, die Zuschauer zu täuschen und zu manipulieren, große Aufmerksamkeit erregt, was Bedenken hinsichtlich Fehlinformationen und Datenschutz aufkommen lässt.
+Deepfakes sind synthetische Medien, die mit Hilfe von Deep-Learning-Techniken, insbesondere generativen adversen Netzwerken (GANs) und Autoencodern, erstellt werden, um visuelle und akustische Inhalte so zu ersetzen oder zu manipulieren, dass sie authentisch erscheinen. Sie haben aufgrund ihres Potenzials, die Zuschauer zu täuschen und zu manipulieren, große Aufmerksamkeit erregt, was Bedenken hinsichtlich Fehlinformationen und Datenschutz aufkommen lässt.
 
 Deepfakes gewinnen aufgrund der Fortschritte bei den Algorithmen des maschinellen Lernens, der Rechenleistung und der Zugänglichkeit zu ausgefeilten Tools immer mehr an Bedeutung. Mit der Fähigkeit, äußerst realistische und überzeugende gefälschte Videos, Bilder und Audiodateien zu erstellen, stellen Deepfakes eine Herausforderung für die Medienauthentifizierung, die Vertrauenswürdigkeit und die Verbreitung von Desinformationen dar. Daher sind das Verständnis von Deepfakes und die Entwicklung robuster Erkennungsmethoden von entscheidender Bedeutung, um sich gegen ihren Missbrauch zu schützen und die Integrität digitaler Medien zu wahren.
 
-Autoencoder sind maschinelle Lernmodelle, die aus einem Encoder- und einem Decoder-Teil bestehen. Sie werden verwendet, um eine komprimierte, aber informationsreiche Darstellung unstrukturierter Daten zu lernen. Wir können zum Beispiel dasselbe Bild als Eingabe und Ausgabe verwenden. Dies würde es dem Autoencoder ermöglichen, eine möglichst komprimierte Vektordarstellung des Bildes (Code im Diagramm) zu lernen, in der alle wichtigen Merkmale gespeichert sind. Dieser Vektor wird dann vom Decoder verwendet, um daraus wieder das Originalbild zu erzeugen. Je besser die gelernte komprimierte Vektordarstellung des Autoencoders ist, desto realistischer ist das erzeugte (=rekonstruierte) Bild.
+Für ein Deepfake werden insgesamt zwei Autoencoder trainiert. Das erste Modell wird mit Bildern oder Videos der Person gefüttert, die im Endprodukt zu sehen sein soll. In den meisten Fällen sind dies Prominente, Politiker oder Sportler, in unserem Beispiel Person A. Das zweite Modell wird mit Bildern einer anderen Person (Person B) trainiert, die die zu imitierende Mimik oder Gestik liefert.
 
 ![Deep Fake](img/deepfake.png)
 
-Für ein Deepfake werden insgesamt zwei Autoencoder trainiert. Das erste Modell wird mit Bildern oder Videos der Person gefüttert, die im Endprodukt zu sehen sein soll. In den meisten Fällen sind dies Prominente, Politiker oder Sportler, in unserem Beispiel Person A. Das zweite Modell wird mit Bildern einer anderen Person (Person B) trainiert, die die zu imitierende Mimik oder Gestik liefert.
-
 Wenn diese beiden Modelle trainiert sind, verwendet man ein Bild von Person B und kodiert es mit dem Kodierer des zweiten Modells. Der resultierende Vektor wird dann in den Decoder des ersten Modells eingespeist, der ein Bild erzeugt, das wie Person A aussieht, aber die Bewegungen und Gesichtsausdrücke von Person B übernommen hat.
 
-Die sogenannten *Generative Adversarial Networks* sind die zweite Möglichkeit, ein ML-Modell zu trainieren, um Deepfakes zu erstellen. Kurz gesagt, wir trainieren zwei neuronale Netze zusammen. Das erste wird so trainiert, dass es künstliche Bilder erzeugt, die so viele Merkmale wie möglich mit den ursprünglichen Trainingsbildern gemeinsam haben. Das zweite Netzwerk wiederum versucht, die Unterschiede zwischen den künstlich erzeugten Bildern und den Originalbildern zu finden. Wir trainieren also zwei Netze, die miteinander konkurrieren, beide werden besser und besser.
+**Anmerkung:** Die sogenannten *Generative Adversarial Networks* sind die zweite Möglichkeit, ein ML-Modell zu trainieren, um Deepfakes zu erstellen. Wir trainieren zwei neuronale Netze zusammen: Das erste wird so trainiert, dass es künstliche Bilder erzeugt, die so viele Merkmale wie möglich mit den ursprünglichen Trainingsbildern gemeinsam haben. Das zweite Netzwerk wiederum versucht, die Unterschiede zwischen den künstlich erzeugten Bildern und den Originalbildern zu finden. Wir trainieren also zwei Netze, die miteinander konkurrieren, beide werden dadurch besser und besser.
 
 ## Was sind die Herausforderungen und Grenzen von Autoencodern?
 
@@ -97,9 +117,9 @@ Autoencoder als leistungsstarke Werkzeuge im Bereich des unüberwachten Lernens 
 
 Eine der größten Herausforderungen ist das Risiko der Überanpassung. Diese Modelle können, insbesondere bei komplexen Datensätzen oder einer großen Anzahl von Parametern, übermäßig auf die Trainingsdaten spezialisiert werden. Techniken wie Regularisierung, Dropout, frühzeitiges Stoppen oder das Einbringen von Rauschen in die Eingabedaten können helfen, eine Überanpassung zu verhindern und die Generalisierung zu fördern.
 
-Die Auswahl der geeigneten Architektur ist für Autocoder entscheidend. Faktoren wie die Anzahl der Schichten, ihre Größe und die Wahl der Aktivierungsfunktionen wirken sich erheblich auf die Leistung aus. Ein ausgewogenes Verhältnis zwischen Modellkomplexität und Generalisierung ist für optimale Ergebnisse unerlässlich.
+Die Auswahl der geeigneten Architektur ist für Autoencoder entscheidend. Faktoren wie die Anzahl der Schichten, ihre Größe und die Wahl der Aktivierungsfunktionen wirken sich erheblich auf die Leistung aus. Ein ausgewogenes Verhältnis zwischen Modellkomplexität und Generalisierung ist für optimale Ergebnisse unerlässlich.
 
-Autocoder können zwar aussagekräftige Darstellungen der Eingabedaten erlernen, aber die Interpretation dieser erlernten Merkmale oder das Verständnis der zugrunde liegenden Beziehungen kann eine Herausforderung darstellen, insbesondere bei tiefen oder komplexen Architekturen. Die Interpretierbarkeit der Modelle ist Gegenstand der laufenden Forschung.
+Autoencoder können zwar aussagekräftige Darstellungen der Eingabedaten erlernen, aber die Interpretation dieser erlernten Merkmale oder das Verständnis der zugrunde liegenden Beziehungen kann eine Herausforderung darstellen, insbesondere bei tiefen oder komplexen Architekturen. Die Interpretierbarkeit der Modelle ist Gegenstand der laufenden Forschung.
 
 Das Training großer Autoencoder-Modelle kann sehr rechenintensiv sein, insbesondere wenn es sich um hochdimensionale Daten oder tiefe Architekturen handelt. Die Berücksichtigung der Berechnungskomplexität und des Ressourcenbedarfs ist von entscheidender Bedeutung, insbesondere in Umgebungen mit begrenzten Ressourcen.
 
@@ -109,14 +129,9 @@ Ein weiterer Aspekt ist die Generalisierung von ungesehenen Daten. Autoencoder k
 
 Trotz dieser Herausforderungen finden Autoencoder Anwendung bei der Erkennung von Anomalien, der Bild- und Texterzeugung und beim Lernen von Merkmalen. Wenn man sich ihrer Grenzen bewusst ist, können Praktiker fundierte Entscheidungen treffen und Autoencoder in ihren spezifischen Bereichen effektiv einsetzen.
 
-## Wie erstellt man einen Autoencoder in Python?
-Um die Implementierung eines einfachen Autoencoders zu demonstrieren, werden wir den MNIST-Datensatz verwenden, der aus Graustufenbildern handgeschriebener Ziffern und der Python-Bibliothek TensorFlow besteht. Das Ziel des Autoencoders wird es sein, diese Bilder durch das Erlernen einer effizienten Repräsentation zu rekonstruieren.
-
-**Aufgabe**: Verfolgen Sie das Code-Beispiel in im Jupyter Notebook zum [MNIST Autoencoder](/modules/autoencoder/MNIST_Autoencoder.ipynb)
-{: .notice--warning} 
 
 
 ## Quellen
 
-Diese Lektion folgt im Wesentlichen dem Text "Was ist ein Autoencoder" von Data Base Camp [Link](https://databasecamp.de/ki/autoencoder) mit kleineren persönlichen Anpassungen.
+Diese Lektion folgt im Wesentlichen dem Text "Was ist ein Autoencoder" von Data Base Camp [(Link)](https://databasecamp.de/ki/autoencoder) mit kleineren persönlichen Anpassungen.
 {: .notice--info}
