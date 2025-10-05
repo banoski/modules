@@ -158,4 +158,5 @@ their embeddings will have a close distance. This offers an enourmous potential 
 ## Further reading
 
 1. Embedding for audio signals: Wav2Vec [(Baevski et al, 2020)](https://arxiv.org/abs/2006.11477)
-2. One of the first papers on word embeddings: Word2Vec [(Mikolov et al, 2013)](https://arxiv.org/pdf/1301.3781) 
+2. One of the first papers on word embeddings: Word2Vec [(Mikolov et al, 2013)](https://arxiv.org/pdf/1301.3781)
+3. Great tool for exploring embeddings: [Embedding Projector](https://projector.tensorflow.org/)
