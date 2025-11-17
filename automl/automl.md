@@ -32,7 +32,7 @@ The benefits of AutoML are pretty obvious:
 Here's an example of using `AutoGluon` for a regression task:
 
 ```python
-from autogluon.tabular import TabularPredictor, TabularDataset
+from autogluon.tabular import TabularPredictor
 
 # Load dataset
 train_data = TabularDataset('https://autogluon.s3.amazonaws.com/datasets/Inc/train.csv')
